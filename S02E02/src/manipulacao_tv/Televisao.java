@@ -1,11 +1,11 @@
 package manipulacao_tv;
 
 public class Televisao {
-	int volume;
-	boolean ligada;
-	boolean hdmi;
-	int canal;
-	boolean antena;
+	private int volume;
+	private boolean ligada;
+	private boolean hdmi;
+	private int canal;
+	private boolean antena;
 
 	public Televisao(int volume, boolean ligada, int canal, boolean antena) {
 		super();
