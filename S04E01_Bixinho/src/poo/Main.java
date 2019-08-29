@@ -13,32 +13,30 @@ public class Main {
 		System.out.println("4 - Cada vez que seu bixinho dorme, ele aumenta 50% de energia mas perde 15% de felicidade e 20% de saciedade");
 		System.out.println("\n");
 		Scanner op = new Scanner(System.in);
-		int opcao=0;
+		String opcao;
 		String nome;
-		System.out.println("Digite um nome para o seu bixinho: ");
-		nome = op.next();
+		//System.out.println("Digite um nome para o seu bixinho: ");
+		//nome = op.next();
 		
-		while (opcao!=6) {
-			System.out.println("O que você quer fazer com o " + nome + "? \n 1 - brincar \n 2 - alimentar \n 3 - botar para dormir \n 4 - acordar \n 5 - status \n 6 - sair do jogo");
-			opcao = op.nextInt();
-			switch (opcao) {
-			case 1:
+		while (true) {
+			System.out.println("O que você quer fazer com seu bixinho " + "? \n brincar \n alimentar x \n dormir \n acordar \n status");
+			
+			opcao = op.nextLine();
+			String[] vet = opcao.split(" ");
+			
+			if(vet[0].equals("brincar")) {
 				bob.brincar();
-				break;
-			case 2:
-				System.out.println("Quanto você deseja dar de comida?");
-				int comida = op.nextInt();
-				bob.alimentar(comida);
-				break;
-			case 3:
+			}else if (vet[0].equals("alimentar")) {
+				int alimento = Integer.parseInt(vet[1]);
+				bob.alimentar(alimento);
+			}else if (vet[0].equals("dormir")) {
 				bob.dormir();
-				break;
-			case 4:
+			}else if(vet[0].equals("acordar")) {
 				bob.acordar();
-				break;
-			case 5:
+			}else if(vet[0].equals("status")){
 				bob.status();
-				break;
+			}else {
+				System.out.println("Não entendi. Digite novamente!");
 			}
 		}
 	
