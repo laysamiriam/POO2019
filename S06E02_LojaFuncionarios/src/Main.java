@@ -17,7 +17,7 @@ public class Main {
 		
 		
 		while (true) {
-			System.out.println("Você quer: adiconarFuncionario(nome,funcao,salario), removerFuncionario(nome) ou status");
+			System.out.println("Você quer: adiconarFuncionario(nome,funcao,salario), removerFuncionario(nome), darcomissao(valor) ou status");
 			String opcao = op.nextLine();
 			String[] vet = opcao.split(" ");
 			
@@ -31,6 +31,8 @@ public class Main {
 			}else if(vet[0].equals("status")){
 				System.out.println(topson.toString());
 				continue;
+			}else if (vet[0].contentEquals("darcomissao")){
+				topson.darComissao(Integer.parseInt(vet[1]));
 			}else {
 				System.out.println("Não entendi. Tente novamente");
 			}

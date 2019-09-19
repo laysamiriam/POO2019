@@ -12,21 +12,28 @@ public class Loja {
 
 	public void adicionarFuncionario(String nome, String funcao, double salario) {
 		this.funcionarios.add(new Funcionario(nome, funcao, salario));
-		System.out.println("Funcionário " + nome + " adicionado com sucesso!");
+		System.out.println("Funcionário(a) " + nome + " adicionado(a) com sucesso!");
 	}
 
 	public void removerFuncionario(String nome) {
 		for (int i=0; i<funcionarios.size();i++) {
 			if (funcionarios.get(i).getNome().equals(nome)) {
 				funcionarios.remove(funcionarios.get(i));
-				System.out.println("Funcionário " + nome + " removido com sucesso!");
+				System.out.println("Funcionário(a) " + nome + " removido(a) com sucesso!");
 				break;
 			}else if(i==(funcionarios.size()-1)) {
-				System.out.println("Funcionários não encontrado");
+				System.out.println("Funcionário(a) não encontrado(a)");
 			}
 			
 		}
 		
+	}
+	
+	public void darComissao(int valor) {
+		System.out.println("Você está adicionando" + valor +" % de comissão a cada funcionario");
+		for(Funcionario funcionario: funcionarios ) {
+			funcionario.setSalario(funcionario.getSalario()+((funcionario.getSalario()*valor)/100));
+		}
 	}
 
 	@Override
