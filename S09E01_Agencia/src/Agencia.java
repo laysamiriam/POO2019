@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.management.RuntimeErrorException;
+
 public class Agencia {
 	ArrayList<Cliente> clientes;
 	ArrayList<Conta> contas;
@@ -11,8 +13,7 @@ public class Agencia {
 
 	public boolean checar(int d) {
 		if (contas.size() <= d) {
-			System.out.println("Conta Inexistente");
-			return true;
+			throw new RuntimeException("Conta inexistente");
 		}
 		return false;
 	}
@@ -20,17 +21,14 @@ public class Agencia {
 	public boolean verificar(String id) {
 		for (int i = 0; i < clientes.size(); i++) {
 			if (clientes.get(i).getId().equals(id)) {
-				System.out.println("Cliente já existe");
-				return true;
+				throw new RuntimeException("Esse Cliente já existe");
 			}
 		}
 		return false;
 	}
 
 	public void addCliente(String id) {
-		if (verificar(id)) {
-			System.out.println("Esse cliente já existe");
-		} else {
+		if (verificar(id)==false) {
 			Cliente c1 = new Cliente(id);
 			clientes.add(c1);
 			ContaPoupanca cp = new ContaPoupanca(c1, contas.size());

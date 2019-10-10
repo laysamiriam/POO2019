@@ -20,6 +20,7 @@ public class Cliente {
 	public String toString() {
 		return this.getId();
 	}
+	
 	public String getId() {
 		return id;
 	}

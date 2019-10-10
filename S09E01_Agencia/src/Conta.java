@@ -21,7 +21,7 @@ public abstract class Conta {
 		if(this.getSaldo()>=valor) {
 			this.setSaldo(getSaldo()-valor);
 		}else {
-			System.out.println("Você não tem saldo suficiente para efetuar essa operação");
+			throw new RuntimeException("Você não tem saldo suficiente para efetuar essa operação");
 		}
 	}
 	
@@ -31,12 +31,10 @@ public abstract class Conta {
 	
 	public void transferir(Conta destino, double valor) {
 		sacar(valor);
-		destino.depositar(valor); // a linha de código mais sofrida desse trabalho
-		
+		destino.depositar(valor); // a linha de código mais sofrida desse trabalho	
 	}
 	
 	public void update() {
-		
 	}
 
 	public double getSaldo() {
