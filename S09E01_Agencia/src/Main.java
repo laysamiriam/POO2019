@@ -54,11 +54,7 @@ public class Main {
 			} else if (vet[0].equals("transferir")) {
 				int id = Integer.parseInt(vet[1]);
 				int idestino = Integer.parseInt(vet[2]);
-				if (a1.contas.size() <= idestino) {
-					System.out.println("Conta Inexistente");
-					continue;
-
-				} else {
+				if (a1.checar(id) == false) {
 					valorstr = vet[3];
 					valor = Double.parseDouble(valorstr);
 					Conta b1 = a1.contas.get(idestino);
